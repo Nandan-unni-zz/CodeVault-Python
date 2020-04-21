@@ -1,11 +1,11 @@
 ############################################################
-################## (C) A S NANDANUNNNI (C) #################
+#####################  A S NANDANUNNNI  ####################
 ############################################################
 
-import os
 import random
 import datetime
 import time
+import os
 
 def clear():
     os.system('cls' if os.name=='nt' else 'clear')
@@ -21,7 +21,7 @@ def off():
     print("\t*---*---*---*")
     print("\t     \ /     ")
     print("\t      *      ")
-    time.sleep(1)
+    time.sleep(0.8)
     clear()
     exit()
 
@@ -37,14 +37,11 @@ def addcontact():
     f.write("\n")
     f.close()
     clear()
-    print("\n\n\tsaving...")
-    time.sleep(0.5)
-    clear()
     a=int(input("\n\t1. Add Contact\t2. Back\n\n\t    Menu : "))
     if a==1:
         addcontact()
     else:
-        return 0
+        return None
 
 def dispcontact():
     clear()
@@ -60,7 +57,7 @@ def dispcontact():
         j=j+1
     f.close()
     del contacts
-    input("\n\t    Continue ")
+    input("\n\t    Continue... ")
 
 def editcontact():
     dispcontact()
@@ -83,13 +80,27 @@ def editcontact():
     f.writelines(cont)
     f.close()
     clear()
-    print("\n\n\tsaving...")
-    time.sleep(0.5)
+    return None
+
+def deletecontact():
+    dispcontact()
+    print("\n\n\t D E L E T E   C O N T A C T")
+    a=input("\n\n\tName : ")
+    b=input("\n\tPhone number : ")
+    f=open("contacts.txt","r")
+    cont=f.readlines()
+    f.close()
+    cont=[i.replace(a,"",1) for i in cont]
+    cont=[i.replace(b,"",1) for i in cont] 
+    f=open("contacts.txt","w")
+    f.writelines(cont)
+    f.close()
+    return None
 
 def calculator():
     clear()
     print("\n\n\t\tC A L C U L A T O R")
-    a=float(input("Enter first number: "))
+    a=float(input("\nEnter first number: "))
     b=input("\nEnter the operator: ")
     c=float(input("\nEnter second number: "))
     f=0
@@ -118,7 +129,7 @@ def calculator():
     if a==1:
         calculator()
     else:
-        return 0
+        return None
 ############################################################
 ######################## HANGMAN GAME ######################
 
@@ -141,8 +152,7 @@ def hangman():
         print("\t*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*")
 
     def pause():
-        print("\n\t    Press Enter to continue...",end="")
-        input()
+        input("\n\t   Press Enter to continue...")
 
     words=["apple","orange","grapes","banana","pineapple","jackfruit"]
     user=["__p__","__a__e","__a__s","__n__a","__n__p__e","__c__r__t"]
@@ -178,7 +188,7 @@ def hangman():
                 if z==1:
                     hangman()
                 else:
-                    return 0
+                    return None
         else:
             h=h-1
             print("\n\n\tThe word doesn't contain",z)
@@ -211,7 +221,7 @@ def hangman():
         if z==1:
             hangman()
         else:
-            return 0
+            return None
 
 ####################### HANGMAN GAME #######################
 ############################################################
@@ -230,6 +240,7 @@ def home():
     b=int()
     if a==1:
         clear()
+        print("\n\n\tC O N T A C T S")
         print("\n\n  1. Add Contact\t2. View Contacts\n\n  3. Edit Contact\t4. Delete Contact\n\n  5. Back")
         b=int(input("\n\tMenu : "))
         if b==1:
@@ -240,6 +251,9 @@ def home():
             home()
         elif b==3:
             editcontact()
+            home()
+        elif b==4:
+            deletecontact()
             home()
         else:
             home()
