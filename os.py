@@ -265,7 +265,7 @@ def home():
         home()
     elif a==4:
         clear()
-        print("\n\n  1. Hangman\t2. (Coming Soon)\t3. Back")
+        print("\n\n  1. Hangman\t2. Back")
         b=int(input("\n\tMenu : "))
         if b==1:
             hangman()
