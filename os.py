@@ -7,6 +7,10 @@ import datetime
 import time
 import os
 
+from pymongo import MongoClient
+route = MongoClient("mongodb://localhost:27017") # Client : route
+proton = route.proton # Database : proton
+
 def clear():
     os.system('cls' if os.name=='nt' else 'clear')
 
@@ -25,6 +29,8 @@ def off():
     clear()
     exit()
 
+######################## C O N T A C T S ######################
+
 def addcontact():
     clear()
     print("\n\n\tA D D   C O N T A C T S")
@@ -37,6 +43,11 @@ def addcontact():
     f.write("\n")
     f.close()
     clear()
+    person = {
+        'Name' : cname,
+        'Phno' : cphno
+    }
+    proton.contacts.insert_one(person)
     a=int(input("\n\t1. Add Contact\t2. Back\n\n\t    Menu : "))
     if a==1:
         addcontact()
@@ -97,6 +108,27 @@ def deletecontact():
     f.close()
     return None
 
+########################### N O T E S #########################
+
+def addnotes():
+    clear()
+    print("\n\n\tA D D   N O T E S")
+    ntitle=input("\n\tTitle : ")
+    ntext=input("\n Type notes and press enter to save : \n\n    ")
+    clear()
+    note = {
+        'Title' : ntitle,
+        'Text' : ntext
+    }
+    proton.notes.insert_one(note)
+    a=int(input("\n\t1. Add Notes\t2. Back\n\n\t    Menu : "))
+    if a==1:
+        addnotes()
+    else:
+        return None
+
+###################### C A L C U L A T O R ####################
+
 def calculator():
     clear()
     print("\n\n\t\tC A L C U L A T O R")
@@ -130,8 +162,8 @@ def calculator():
         calculator()
     else:
         return None
-############################################################
-######################## HANGMAN GAME ######################
+
+########################## HANGMAN GAME #######################
 
 def hangman():
     def title():
@@ -223,11 +255,7 @@ def hangman():
         else:
             return None
 
-####################### HANGMAN GAME #######################
-############################################################
-
-############################################################
-############################ HOME ##########################
+############################ HOME #############################
 
 def home():
     clear()
@@ -258,7 +286,16 @@ def home():
         else:
             home()
     elif a==2:
-        home()
+        clear()
+        print("\n\n\t N O T E S")
+        b=int(input("\n\n 1. Add Notes\t2. View Notes\n\n 3. Back\n\n\tMenu : "))
+        if b==1:
+            addnotes()
+            home()
+        elif b==2:
+            home()
+        else:
+            home
     elif a==3:
         clear()
         calculator()
