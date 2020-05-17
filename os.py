@@ -10,6 +10,8 @@ import os
 from pymongo import MongoClient
 route = MongoClient("mongodb://localhost:27017") # Client : route
 proton = route.proton # Database : proton
+contacts = proton.contacts # Collection : contacts
+notes = proton.notes # Collection : notes
 
 def clear():
     os.system('cls' if os.name=='nt' else 'clear')
@@ -47,7 +49,7 @@ def addcontact():
         'Name' : cname,
         'Phno' : cphno
     }
-    proton.contacts.insert_one(person)
+    contacts.insert_one(person)
     a=int(input("\n\t1. Add Contact\t2. Back\n\n\t    Menu : "))
     if a==1:
         addcontact()
@@ -73,23 +75,14 @@ def dispcontact():
 def editcontact():
     dispcontact()
     print("\n\n\tE D I T   C O N T A C T")
-    a=input("\n\n\tOld Name : ")
-    b=input("\n\tOld Phone Number : ")
+    a=input("\n\n\tSearch by Name : ")
     c=int(input("\n\t1. Edit Name\n\t2. Edit phone number\n\t    Menu : "))
     if c==1:
         d=input("\n\tNew Name : ")
+        contacts.update_one({'Name' : a}, {'$set': {'Name' : d}})
     else:
         d=input("\n\tNew Phone Number : ")
-    f=open("contacts.txt","r")
-    cont=f.readlines()
-    f.close()
-    if c==1:
-        cont=[i.replace(a,d) for i in cont]
-    else:
-        cont=[i.replace(b,d) for i in cont]
-    f=open("contacts.txt","w")
-    f.writelines(cont)
-    f.close()
+        contacts.update_one({'Name' : a}, {'$set': {'Phno' : d}})
     clear()
     return None
 
@@ -97,15 +90,7 @@ def deletecontact():
     dispcontact()
     print("\n\n\t D E L E T E   C O N T A C T")
     a=input("\n\n\tName : ")
-    b=input("\n\tPhone number : ")
-    f=open("contacts.txt","r")
-    cont=f.readlines()
-    f.close()
-    cont=[i.replace(a,"",1) for i in cont]
-    cont=[i.replace(b,"",1) for i in cont] 
-    f=open("contacts.txt","w")
-    f.writelines(cont)
-    f.close()
+    contacts.delete_one({'Name' : a})
     return None
 
 ########################### N O T E S #########################
@@ -120,13 +105,14 @@ def addnotes():
         'Title' : ntitle,
         'Text' : ntext
     }
-    proton.notes.insert_one(note)
+    notes.insert_one(note)
     a=int(input("\n\t1. Add Notes\t2. Back\n\n\t    Menu : "))
     if a==1:
         addnotes()
     else:
         return None
 
+# def delete
 ###################### C A L C U L A T O R ####################
 
 def calculator():
@@ -258,6 +244,7 @@ def hangman():
 ############################ HOME #############################
 
 def home():
+    contacts = 1
     clear()
     print("\n\n")
     clock=datetime.datetime.now()
