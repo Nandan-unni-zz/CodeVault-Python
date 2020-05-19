@@ -1,9 +1,8 @@
 def create_1(opt1):
     a1 = int(input('''
   1. {}
-    
-
-      >> '''.format(opt1)))
+  \n
+        >> '''.format(opt1)))
     menu_1 = {
         1 : opt1
     }
@@ -13,10 +12,9 @@ def create_1(opt1):
 
 def create_2(opt1, opt2):
     a2 = int(input('''
-  1. {}\t\t  2. {}
-
-
-      >> '''.format(opt1, opt2)))
+  1. {}\t\t 2. {}
+  \n
+        >> '''.format(opt1, opt2)))
     menu_2 = {
         1 : opt1,
         2 : opt2
@@ -30,9 +28,8 @@ def create_3(opt1, opt2, opt3):
   1. {}\t\t 2. {}
       
   3. {}
-
-
-      >> '''.format(opt1, opt2, opt3)))
+  \n
+        >> '''.format(opt1, opt2, opt3)))
     menu_3 = {
         1 : opt1,
         2 : opt2,
@@ -44,12 +41,11 @@ def create_3(opt1, opt2, opt3):
 
 def create_4(opt1, opt2, opt3, opt4):
     a4 = int(input('''
-  1. {}\t\t  2. {}
+  1. {}\t\t 2. {}
 
-  3. {}\t\t  4. {}
-
-
-      >> '''.format(opt1, opt2, opt3, opt4)))
+  3. {}\t\t 4. {}
+  \n
+        >> '''.format(opt1, opt2, opt3, opt4)))
     menu_4 = {
         1 : opt1,
         2 : opt2,
@@ -62,14 +58,13 @@ def create_4(opt1, opt2, opt3, opt4):
 
 def create_5(opt1, opt2, opt3, opt4, opt5):
     a5 = int(input('''
-  1. {}\t\t  2. {}
+  1. {}\t\t 2. {}
 
-  3. {}\t\t  4. {}
+  3. {}\t\t 4. {}
 
   5. {}
-
-
-      >> '''.format(opt1, opt2, opt3, opt4, opt5)))
+  \n
+        >> '''.format(opt1, opt2, opt3, opt4, opt5)))
     menu_5 = {
         1 : opt1,
         2 : opt2,
@@ -83,14 +78,13 @@ def create_5(opt1, opt2, opt3, opt4, opt5):
 
 def create_6(opt1, opt2, opt3, opt4, opt5, opt6):
     a6 = int(input('''
-  1. {}\t\t  2. {}
+  1. {}\t\t 2. {}
 
-  3. {}\t\t  4. {}
+  3. {}\t\t 4. {}
 
-  5. {}\t\t  6. {}
-
-
-      >> '''.format(opt1, opt2, opt3, opt4, opt5, opt6)))
+  5. {}\t\t 6. {}
+  \n
+        >> '''.format(opt1, opt2, opt3, opt4, opt5, opt6)))
     menu_6 = {
         1 : opt1,
         2 : opt2,
@@ -100,3 +94,26 @@ def create_6(opt1, opt2, opt3, opt4, opt5, opt6):
         6 : opt6
     }
     return menu_6[a6]
+
+
+def create_7(opt1, opt2, opt3, opt4, opt5, opt6, opt7):
+    a7 = int(input('''
+  1. {}\t\t 2. {}
+
+  3. {}\t\t 4. {}
+
+  5. {}\t\t 6. {}
+
+  7. {}
+  \n
+        >> '''.format(opt1, opt2, opt3, opt4, opt5, opt6, opt7)))
+    menu_7 = {
+        1 : opt1,
+        2 : opt2,
+        3 : opt3,
+        4 : opt4,
+        5 : opt5,
+        6 : opt6,
+        7 : opt7
+    }
+    return menu_7[a7]
