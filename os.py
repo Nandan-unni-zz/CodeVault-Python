@@ -2,6 +2,9 @@
 #####################  A S NANDANUNNNI  ####################
 ############################################################
 
+#KERNEL
+
+#modules
 import random
 import datetime
 import time
@@ -15,6 +18,8 @@ proton = route.proton # Database : proton
 contacts = proton.contacts # Collection : contacts
 notes = proton.notes # Collection : notes
 
+#Globals
+storage = 'mongodb'
 
 def clear():
     os.system('cls' if os.name=='nt' else 'clear')
@@ -174,7 +179,7 @@ def hangman():
         input("\n\t   Press Enter to continue...")
 
     words=["apple","orange","grapes","banana","pineapple","jackfruit"]
-    user=["__p__","__a__e","__a__s","__n__a","__n__p__e","__c__r__t"]
+    #     ["__p__","__a__e","__a__s","__n__a","__n__p__e","__c__r__t"]
     a=random.randint(0,5)
     ans=words[a]
     guess=words[a]
@@ -242,7 +247,7 @@ def hangman():
         else:
             return None
 
-########################## HANGMAN GAME #######################
+########################## FACTORY RESET #######################
 
 def reset():
     clear()
@@ -252,6 +257,7 @@ def reset():
     contacts.delete_many({})
     notes.delete_many({})
     return None
+
 ############################ HOME #############################
 
 def home():
