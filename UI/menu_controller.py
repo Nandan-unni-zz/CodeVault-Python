@@ -106,7 +106,7 @@ def create_7(opt1, opt2, opt3, opt4, opt5, opt6, opt7):
 
   7. {}
   \n
-        >> '''.format(opt1, opt2, opt3, opt4, opt5, opt6, opt7)))
+         >> '''.format(opt1, opt2, opt3, opt4, opt5, opt6, opt7)))
     menu_7 = {
         1 : opt1,
         2 : opt2,

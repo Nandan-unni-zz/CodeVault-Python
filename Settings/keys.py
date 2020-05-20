@@ -18,7 +18,6 @@ def get_def(prop):
     f.close()
     req = props[index[prop]]
     req = req.replace("\n", "")
-    print(req)
     return req
 
 def mod_def(prop, new_def):
@@ -27,7 +26,6 @@ def mod_def(prop, new_def):
     props = fr.readlines()
     fr.close()
     fw = open("defaults.txt", "w")
-    print(index[prop], props)
     del props[index[prop]]
     props.insert(index[prop], new)
     for pro in props:
@@ -48,3 +46,17 @@ months = {
     11 : 'Nov',
     12  : 'Dec'
 }
+'''
+watch = {
+    1 : '1️⃣',
+    2 : ,
+    3 : ,
+    4 : ,
+    5 : ,
+    6 : ,
+    7 : ,
+    8 : ,
+    9 : ,
+}
+1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣0️⃣
+'''

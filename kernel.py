@@ -21,7 +21,7 @@ key = imp.load_source('key', './Settings/keys.py')
 def home():
     screen.clear()
     design.timer()
-    opt = menu.create_7('CONTACTS', 'NOTES', 'CALCULATOR', 'SETTINGS', 'GAMES', 'REFRESH', 'POWER OFF')
+    opt = menu.create_7('CONTACTS 👤', 'NOTES 📚', 'CALCULATOR 📟', 'SETTINGS 🔧', 'GAMES ⚽️', 'REFRESH 🌀', 'POWER OFF 🛑')
     design.create_band(opt)
     if opt == 'CONTACTS':
         subopt = menu.create_5('Add Contact', 'View Contacts', 'Edit Contacts', 'Delete Contacts', 'Back')
