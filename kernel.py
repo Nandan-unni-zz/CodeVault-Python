@@ -15,12 +15,13 @@ hangman = imp.load_source('hangman', './Apps/hangman.py')
 calculator = imp.load_source('calculator', './Apps/calculator.py')
 
 settings = imp.load_source('settings', './Settings/settings.py')
+date_time = imp.load_source('date_time', './Settings/date_time.py')
 key = imp.load_source('key', './Settings/keys.py')
 
 
 def home():
     screen.clear()
-    design.timer()
+    date_time.timer()
     opt = menu.create_7('CONTACTS 👤', 'NOTES 📚', 'CALCULATOR 📟', 'SETTINGS 🔧', 'GAMES ⚽️', 'REFRESH 🌀', 'POWER OFF 🛑')
     design.create_band(opt)
     if opt == 'CONTACTS':
@@ -61,11 +62,11 @@ def home():
     elif opt == 'SETTINGS':
         subopt = menu.create_4('Date', 'Time', 'Factory Reset', 'Back')
         if subopt == 'Time':
-            settings.time_format()
+            date_time.time_format()
             home()
         
         elif subopt == 'Date':
-            settings.date_format()
+            date_time.date_format()
             home()
         
         elif subopt == 'Factory Reset':

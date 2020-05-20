@@ -102,7 +102,7 @@ def create_7(opt1, opt2, opt3, opt4, opt5, opt6, opt7):
 
   3. {}\t\t 4. {}
 
-  5. {}\t\t 6. {}
+  5. {}\t\t\t 6. {}
 
   7. {}
   \n

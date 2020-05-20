@@ -26,23 +26,3 @@ def factory_reset():
         'storage' : 'mongodb'
     }
     return None
-
-def time_format():
-    design.create_band('Select Time Format')
-    opt = menu.create_3('24 hour', '12 hour', 'Cancel')
-    if opt == '12 hour':
-        key.mod_def('time', '12')
-        return None
-    elif opt == '24 hour':
-        key.mod_def('time', '24')
-        return None
-    else:
-        return None
-
-def date_format():
-    design.create_band('Select Month Display Method')
-    opt = menu.create_3('Text', 'Number', 'Cancel')
-    if opt == 'Text':
-        key.mod_def('date', 'text')
-    elif opt == 'Number':
-        key.mod_def('date', 'number')

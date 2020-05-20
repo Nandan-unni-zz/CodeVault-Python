@@ -27,36 +27,6 @@ def off():
     time.sleep(0.5)
 
 
-def timer():
-    screen.clear()
-    print("\n\n")
-    clock=datetime.datetime.now()
-
-    if key.get_def('time') == '24':
-        if key.get_def('date') == 'number':
-            print("\t\t",clock.day,"/",clock.month,"/",clock.year)
-            print("\t\t   ",clock.hour,":",clock.minute)
-        else:
-            month = key.months[clock.month]
-            print("\t\t",clock.day," ",month," ",clock.year)
-            print("\t\t   ",clock.hour,":",clock.minute)
-    else:
-        if clock.hour > 12:
-            hour = clock.hour - 12
-            zone = 'pm'
-        else:
-            zone = 'am'
-        if key.get_def('date') == 'number':
-            print("\t\t",clock.day,"/",clock.month,"/",clock.year)
-            print("\t\t  ",hour,":",clock.minute, zone)
-        else:
-            month = key.months[clock.month]
-            print("\t\t",clock.day," ",month," ",clock.year)
-            print("\t\t  ",hour,":",clock.minute, zone)
-
-    print('\n')
-
-
 def create_logo(label):
     screen.clear()
     if len(label) <= 16:
@@ -125,3 +95,18 @@ def create_band(label):
     for i in range(50 - totlen):
         print(' ', end="")
     print(dsgn, '\n')
+
+months = {
+    1 : 'Jan',
+    2 : 'Feb',
+    3 : 'March',
+    4 : 'April',
+    5 : 'May',
+    6 : 'June',
+    7 : 'July',
+    8 : 'Aug',
+    9 : 'Sept',
+    10 : 'Oct',
+    11 : 'Nov',
+    12  : 'Dec'
+}
