@@ -23,6 +23,7 @@ def timer():
             hour = clock.hour - 12
             zone = 'pm'
         else:
+            hour = clock.hour
             zone = 'am'
         if key.get_def('date') == 'number':
             print("\t\t",clock.day,"/",clock.month,"/",clock.year, "/n")

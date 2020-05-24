@@ -24,7 +24,7 @@ def home():
     date_time.timer()
     opt = menu.create_7('CONTACTS 👤', 'NOTES 📚', 'CALCULATOR 📟', 'SETTINGS 🔧', 'GAMES ⚽️', 'REFRESH 🌀', 'POWER OFF 🛑')
     design.create_band(opt)
-    if opt == 'CONTACTS':
+    if opt == 'CONTACTS 👤':
         subopt = menu.create_5('Add Contact', 'View Contacts', 'Edit Contacts', 'Delete Contacts', 'Back')
         if subopt == 'Add Contact':
             contacts.add()
@@ -41,7 +41,7 @@ def home():
         else:
             home()
     
-    elif opt == 'NOTES':
+    elif opt == 'NOTES 📚':
         subopt = menu.create_4('New Note', 'View Notes', 'Delete Notes', 'Back')
         if subopt == 'New Note':
             notes.add()
@@ -55,11 +55,11 @@ def home():
         else:
             home()
 
-    elif opt == 'CALCULATOR':
+    elif opt == 'CALCULATOR 📟':
         calculator.main()
         home()
 
-    elif opt == 'SETTINGS':
+    elif opt == 'SETTINGS 🔧':
         subopt = menu.create_4('Date', 'Time', 'Factory Reset', 'Back')
         if subopt == 'Time':
             date_time.time_format()
@@ -75,7 +75,7 @@ def home():
         else:
             home()
     
-    elif opt == 'GAMES':
+    elif opt == 'GAMES ⚽️':
         subopt = menu.create_2('Hangman', 'Back')
         if subopt == 'Hangman':
             hangman.main()
@@ -83,10 +83,10 @@ def home():
         else:
             home()
     
-    elif opt == 'REFRESH':
+    elif opt == 'REFRESH 🌀':
         home()
     
-    elif opt == 'POWER OFF':
+    elif opt == 'POWER OFF 🛑':
         screen.clear()
         design.off()
         screen.clear()
