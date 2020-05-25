@@ -11,8 +11,9 @@ design = imp.load_source('design', './UI/designs.py')
 contacts = imp.load_source('contacts', './Storage/contacts.py')
 notes = imp.load_source('notes', './Storage/notes.py')
 
-hangman = imp.load_source('hangman', './Apps/hangman.py')
 calculator = imp.load_source('calculator', './Apps/calculator.py')
+hangman = imp.load_source('hangman', './Apps/hangman.py')
+cricket = imp.load_source('cricket', './Apps/hand_cricket.py')
 
 settings = imp.load_source('settings', './Settings/settings.py')
 date_time = imp.load_source('date_time', './Settings/date_time.py')
@@ -76,9 +77,12 @@ def home():
             home()
     
     elif opt == 'GAMES ⚽️':
-        subopt = menu.create_2('Hangman', 'Back')
+        subopt = menu.create_3('Hangman', 'Hand Cricket (beta)', 'Back')
         if subopt == 'Hangman':
             hangman.main()
+            home()
+        elif subopt == 'Hand Cricket (beta)':
+            cricket.main()
             home()
         else:
             home()
