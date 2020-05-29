@@ -14,6 +14,7 @@ notes = imp.load_source('notes', './Storage/notes.py')
 calculator = imp.load_source('calculator', './Apps/calculator.py')
 hangman = imp.load_source('hangman', './Apps/hangman.py')
 cricket = imp.load_source('cricket', './Apps/hand_cricket.py')
+tic_tac_toe = imp.load_source('tic_tac_toe', './Apps/tic_tac_toe.py')
 
 settings = imp.load_source('settings', './Settings/settings.py')
 date_time = imp.load_source('date_time', './Settings/date_time.py')
@@ -77,13 +78,20 @@ def home():
             home()
     
     elif opt == 'GAMES ⚽️':
-        subopt = menu.create_3('Hangman', 'Hand Cricket (beta)', 'Back')
+        subopt = menu.create_4('Hangman (beta)', 'Tic Tac Toe', 'Hand Cricket (dev)', 'Back')
+        
         if subopt == 'Hangman':
             hangman.main()
             home()
-        elif subopt == 'Hand Cricket (beta)':
+        
+        elif subopt == 'Tic Tac Toe':
+            tic_tac_toe.main()
+            home()
+        
+        elif subopt == 'Hand Cricket (dev)':
             cricket.main()
             home()
+        
         else:
             home()
     

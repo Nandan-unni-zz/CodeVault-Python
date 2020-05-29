@@ -12,11 +12,11 @@ def timer():
 
     if key.get_def('time') == '24':
         if key.get_def('date') == 'number':
-            print("\t\t",clock.day,"/",clock.month,"/",clock.year,"/n")
+            print("\t\t",clock.day,"/",clock.month,"/",clock.year,"\n")
             print("\t\t   ",clock.hour,":",clock.minute)
         else:
             month = design.months[clock.month]
-            print("\t\t",clock.day," ",month," ",clock.year, "/n")
+            print("\t\t",clock.day," ",month," ",clock.year, "\n")
             print("\t\t   ",clock.hour,":",clock.minute)
     else:
         if clock.hour > 12:
@@ -26,7 +26,7 @@ def timer():
             hour = clock.hour
             zone = 'am'
         if key.get_def('date') == 'number':
-            print("\t\t",clock.day,"/",clock.month,"/",clock.year, "/n")
+            print("\t\t",clock.day,"/",clock.month,"/",clock.year, "\n")
             print("\t\t  ",hour,":",clock.minute, zone)
         else:
             month = design.months[clock.month]
