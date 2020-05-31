@@ -1,3 +1,6 @@
+from colorama import Fore, Back, Style
+
+
 def create_1(opt1):
     a1 = input('''
   1. {}
@@ -16,7 +19,7 @@ def create_1(opt1):
 
 def create_2(opt1, opt2):
     a2 = input('''
-  1. {}\t\t 2. {}
+  1. {}\t\t2. {}
   \n
         >> '''.format(opt1, opt2))
     if a2.isnumeric():
@@ -33,7 +36,7 @@ def create_2(opt1, opt2):
 
 def create_3(opt1, opt2, opt3):
     a3 = input('''
-  1. {}\t\t 2. {}
+  1. {}\t\t2. {}
       
   3. {}
   \n
@@ -53,9 +56,9 @@ def create_3(opt1, opt2, opt3):
 
 def create_4(opt1, opt2, opt3, opt4):
     a4 = input('''
-  1. {}\t\t 2. {}
+  1. {}\t\t2. {}
 
-  3. {}\t\t 4. {}
+  3. {}\t\t4. {}
   \n
         >> '''.format(opt1, opt2, opt3, opt4))
     if a4.isnumeric():
@@ -73,9 +76,9 @@ def create_4(opt1, opt2, opt3, opt4):
 
 def create_5(opt1, opt2, opt3, opt4, opt5):
     a5 = input('''
-  1. {}\t\t 2. {}
+  1. {}\t\t2. {}
 
-  3. {}\t\t 4. {}
+  3. {}\t\t4. {}
 
   5. {}
   \n
@@ -96,11 +99,11 @@ def create_5(opt1, opt2, opt3, opt4, opt5):
 
 def create_6(opt1, opt2, opt3, opt4, opt5, opt6):
     a6 = input('''
-  1. {}\t\t 2. {}
+  1. {}\t\t2. {}
 
-  3. {}\t\t 4. {}
+  3. {}\t\t4. {}
 
-  5. {}\t\t 6. {}
+  5. {}\t\t6. {}
   \n
         >> '''.format(opt1, opt2, opt3, opt4, opt5, opt6))
     if a6.isnumeric():
@@ -118,16 +121,14 @@ def create_6(opt1, opt2, opt3, opt4, opt5, opt6):
         return opt6
 
 def create_7(opt1, opt2, opt3, opt4, opt5, opt6, opt7):
-    a7 = input('''
-  1. {}\t\t 2. {}
+    print(Fore.RED,
+            ' 1.', Style.RESET_ALL, '{}\t\t'.format(opt1), Fore.RED, '2.', Style.RESET_ALL, '{}\n\n'.format(opt2), Fore.RED,
+            '3.', Style.RESET_ALL, '{}\t\t'.format(opt3), Fore.RED, '4.', Style.RESET_ALL, '{}\n\n'.format(opt4), Fore.RED,
+            '5.', Style.RESET_ALL, '{}\t\t\t'.format(opt5), Fore.RED, '6.', Style.RESET_ALL, '{}\n\n'.format(opt6), Fore.RED,
+            '7.', Style.RESET_ALL, '{}'.format(opt7), Fore.MAGENTA, '\n\n\n\t>> ', end="")
 
-  3. {}\t\t 4. {}
-
-  5. {}\t\t\t 6. {}
-
-  7. {}
-  \n
-        >> '''.format(opt1, opt2, opt3, opt4, opt5, opt6, opt7))
+    a7 = input()
+    print(Style.RESET_ALL)
     if a7.isnumeric():
         a7 = int(a7)
         menu_7 = {

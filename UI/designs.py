@@ -1,29 +1,31 @@
 import datetime
 import time
+from colorama import Fore, Back, Style
+
 import imp
 screen = imp.load_source('screen', './UI/screen_controller.py')
 key = imp.load_source('key', './Settings/keys.py')
 
 def logo():
-    print(''' 
+    print(Fore.RED + Style.BRIGHT, ''' 
         
-            P R O T O N 
+                P R O T O N
 
-    ''')
+    ''', Style.RESET_ALL)
     time.sleep(0.5)
 
 
 def off():
     print("\n\n")
-    print("\t      **      ")
+    print(Fore.MAGENTA, "\t      **      ")
     print("\t     /  \     ")
     print("\t*---*----*---*")
     print("\t \ /      \ / ")
-    print("\t  * PROTON *  ")
+    print("\t  * " + Fore.RED + Style.BRIGHT + "PROTON" + Style.RESET_ALL + Fore.MAGENTA, " *  ")
     print("\t / \      / \ ")
     print("\t*---*----*---*")
     print("\t     \  /     ")
-    print("\t      **      ")
+    print("\t      **      ", Style.RESET_ALL)
     time.sleep(0.5)
 
 
@@ -33,8 +35,8 @@ def create_logo(label):
         title = ' '.join(label)
     else:
         title = label
-    dsgn1 = '=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-='
-    dsgn2 = '-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
+    dsgn1 = '=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-='
+    dsgn2 = '-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
     dsgn3 = dsgn1
     dslen = len(dsgn3)
     ttlen = len(title)
@@ -46,13 +48,11 @@ def create_logo(label):
                 dsgn3 = dsgn3[:rem] + title[j] + dsgn3[rem+1:]
             break
 
-    print('''\n\n
-{}
-{}
-{}
-{}
-{}
-    '''.format(dsgn1, dsgn2, dsgn3, dsgn2, dsgn1))
+    print(Fore.MAGENTA, '\n\n\n{}'.format(dsgn1), Style.RESET_ALL,
+        Fore.MAGENTA, '\n{}'.format(dsgn2), Style.RESET_ALL,
+        Fore.RED, '\n{}'.format(dsgn3), Style.RESET_ALL,
+        Fore.MAGENTA, '\n{}'.format(dsgn2), Style.RESET_ALL,
+        Fore.MAGENTA, '\n{}\n'.format(dsgn1), Style.RESET_ALL )
 
 
 def create_banner(label):
@@ -73,11 +73,10 @@ def create_banner(label):
                 dsgn2 = dsgn2[:rem] + title[j] + dsgn2[rem+1:]
             break
 
-    print('''\n\n
-{}
-{}
-{}
-    '''.format(dsgn1, dsgn2, dsgn1))
+    print(Fore.MAGENTA, '\n\n\n{}'.format(dsgn1), Style.RESET_ALL,
+        Fore.RED, '\n{}'.format(dsgn2), Style.RESET_ALL,
+        Fore.MAGENTA, '\n{}\n'.format(dsgn1), Style.RESET_ALL
+    )
 
 
 def create_band(label):
@@ -92,9 +91,9 @@ def create_band(label):
     dsgn = dsgn1 + title + dsgn2
     totlen = len(dsgn) + len(dsgn1) + len(dsgn2)
     print('\n')
-    for i in range(50 - totlen):
+    for i in range(55 - totlen):
         print(' ', end="")
-    print(dsgn, '\n')
+    print(Fore.MAGENTA, Style.BRIGHT, dsgn, Style.RESET_ALL, '\n')
 
 months = {
     1 : 'Jan',

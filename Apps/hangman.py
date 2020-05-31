@@ -6,7 +6,7 @@ design = imp.load_source('design', './UI/designs.py')
 
 def main():
     def title():
-        design.create_logo('HANGMAN')
+        design.create_logo(' HANGMAN ')
         print("\n\n\t\tGuess the Word..!!!")
 
     def victory():

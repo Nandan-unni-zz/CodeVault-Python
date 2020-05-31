@@ -1,4 +1,6 @@
 import datetime
+from colorama import Fore, Back, Style
+
 import imp
 screen = imp.load_source('screen', './UI/screen_controller.py')
 menu = imp.load_source('menu', './UI/menu_controller.py')
@@ -12,12 +14,12 @@ def timer():
 
     if key.get_def('time') == '24':
         if key.get_def('date') == 'number':
-            print("\t\t",clock.day,"/",clock.month,"/",clock.year,"\n")
-            print("\t\t   ",clock.hour,":",clock.minute)
+            print(Fore.MAGENTA, "\t\t",clock.day,"/",clock.month,"/",clock.year, "\n", Style.RESET_ALL)
+            print(Fore.MAGENTA + Style.BRIGHT, "\t\t   ", clock.hour, ":", clock.minute, Style.RESET_ALL)
         else:
             month = design.months[clock.month]
-            print("\t\t",clock.day," ",month," ",clock.year, "\n")
-            print("\t\t   ",clock.hour,":",clock.minute)
+            print(Fore.MAGENTA, "\t\t",clock.day," ",month," ",clock.year, "\n", Style.RESET_ALL)
+            print(Fore.MAGENTA + Style.BRIGHT, "\t\t   ", clock.hour, ":", clock.minute, Style.RESET_ALL)
     else:
         if clock.hour > 12:
             hour = clock.hour - 12
@@ -26,12 +28,12 @@ def timer():
             hour = clock.hour
             zone = 'am'
         if key.get_def('date') == 'number':
-            print("\t\t",clock.day,"/",clock.month,"/",clock.year, "\n")
-            print("\t\t  ",hour,":",clock.minute, zone)
+            print(Fore.MAGENTA, "\t\t",clock.day,"/",clock.month,"/",clock.year, "\n", Style.RESET_ALL)
+            print(Fore.MAGENTA + Style.BRIGHT, "\t\t  ", hour, ":", clock.minute, zone, Style.RESET_ALL)
         else:
             month = design.months[clock.month]
-            print("\t\t",clock.day," ",month," ",clock.year,"\n")
-            print("\t\t  ",hour,":",clock.minute, zone)
+            print(Fore.MAGENTA, "\t\t",clock.day," ",month," ",clock.year,"\n", Style.RESET_ALL)
+            print(Fore.MAGENTA + Style.BRIGHT, "\t\t  ", hour, ":", clock.minute, zone, Style.RESET_ALL)
 
     print('\n\n')
 

@@ -78,7 +78,7 @@ def home():
             home()
     
     elif opt == 'GAMES ⚽️':
-        subopt = menu.create_4('Hangman (beta)', 'Tic Tac Toe', 'Hand Cricket (dev)', 'Back')
+        subopt = menu.create_4('Hangman', 'Tic Tac Toe', 'Hand Cricket (dev)', 'Back')
         
         if subopt == 'Hangman':
             hangman.main()
@@ -96,7 +96,7 @@ def home():
             home()
     
     elif opt == 'REFRESH 🌀':
-        home()
+        screen.refresh()
     
     elif opt == 'POWER OFF 🛑':
         screen.clear()
