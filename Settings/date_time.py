@@ -1,11 +1,10 @@
+from Settings import keys as key
+from UI import designs as design
+from UI import menu_controller as menu
+from UI import screen_controller as screen
+
 import datetime
 from colorama import Fore, Back, Style
-
-import imp
-screen = imp.load_source('screen', './UI/screen_controller.py')
-menu = imp.load_source('menu', './UI/menu_controller.py')
-design = imp.load_source('design', './UI/designs.py')
-key = imp.load_source('key', './Settings/keys.py')
 
 def timer():
     screen.clear()
@@ -56,3 +55,7 @@ def date_format():
         key.mod_def('date', 'text')
     elif opt == 'Number':
         key.mod_def('date', 'number')
+
+
+if __name__ == '__main__':
+    pass

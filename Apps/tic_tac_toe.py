@@ -1,11 +1,6 @@
-import os
-from os import system, name
-import imp
-screen = imp.load_source('screen', './UI/screen_controller.py')
-menu = imp.load_source('menu', './UI/menu_controller.py')
-design = imp.load_source('design', './UI/designs.py')
-
-#format(remote[0], remote[1], remote[2], remote[3], remote[4], remote[5], remote[6], remote[7], remote[8])
+from UI import designs as design
+from UI import menu_controller as menu
+from UI import screen_controller as screen
 
 
 def logo(*args):
@@ -81,3 +76,7 @@ def main():
     print('  Draw Match !\n')
     input('\t  Home >> ')
     return None
+
+
+if __name__ == '__main__':
+    pass

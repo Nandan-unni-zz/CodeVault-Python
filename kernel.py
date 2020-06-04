@@ -2,32 +2,32 @@
 #### IG : u.n.n.i._ ######
 #### GH : nandan-unni ####
 
-import imp
+from Apps import calculator
+from Apps import hangman
+from Apps import hand_cricket
+from Apps import tic_tac_toe
 
-screen = imp.load_source('screen', './UI/screen_controller.py')
-menu = imp.load_source('menu', './UI/menu_controller.py')
-design = imp.load_source('design', './UI/designs.py')
+from Settings import settings
+from Settings import date_time
 
-contacts = imp.load_source('contacts', './Storage/contacts.py')
-notes = imp.load_source('notes', './Storage/notes.py')
+from Storage import contacts
+from Storage import notes
 
-calculator = imp.load_source('calculator', './Apps/calculator.py')
-hangman = imp.load_source('hangman', './Apps/hangman.py')
-cricket = imp.load_source('cricket', './Apps/hand_cricket.py')
-tic_tac_toe = imp.load_source('tic_tac_toe', './Apps/tic_tac_toe.py')
-
-settings = imp.load_source('settings', './Settings/settings.py')
-date_time = imp.load_source('date_time', './Settings/date_time.py')
-key = imp.load_source('key', './Settings/keys.py')
-
+from UI import designs as design
+from UI import menu_controller as menu
+from UI import screen_controller as screen
 
 def home():
     screen.clear()
     date_time.timer()
-    opt = menu.create_7('CONTACTS 👤', 'NOTES 📚', 'CALCULATOR 📟', 'SETTINGS 🔧', 'GAMES ⚽️', 'REFRESH 🌀', 'POWER OFF 🛑')
+    opt = menu.create_7('CONTACTS 👤', 'NOTES 📚',
+                        'CALCULATOR 📟', 'SETTINGS 🔧',
+                        'GAMES ⚽️', 'REFRESH 🌀',
+                        'POWER OFF 🛑')
     design.create_band(opt)
     if opt == 'CONTACTS 👤':
-        subopt = menu.create_5('Add Contact', 'View Contacts', 'Edit Contacts', 'Delete Contacts', 'Back')
+        subopt = menu.create_5('Add Contact', 'View Contacts',
+                               'Edit Contacts', 'Delete Contacts', 'Back')
         if subopt == 'Add Contact':
             contacts.add()
             home()
@@ -42,7 +42,6 @@ def home():
             home()
         else:
             home()
-    
     elif opt == 'NOTES 📚':
         subopt = menu.create_4('New Note', 'View Notes', 'Delete Notes', 'Back')
         if subopt == 'New Note':
@@ -66,38 +65,29 @@ def home():
         if subopt == 'Time':
             date_time.time_format()
             home()
-        
         elif subopt == 'Date':
             date_time.date_format()
             home()
-        
         elif subopt == 'Factory Reset':
             settings.factory_reset()
             home()
         else:
             home()
-    
     elif opt == 'GAMES ⚽️':
         subopt = menu.create_4('Hangman', 'Tic Tac Toe', 'Hand Cricket (dev)', 'Back')
-        
         if subopt == 'Hangman':
             hangman.main()
             home()
-        
         elif subopt == 'Tic Tac Toe':
             tic_tac_toe.main()
             home()
-        
         elif subopt == 'Hand Cricket (dev)':
-            cricket.main()
+            hand_cricket.main()
             home()
-        
         else:
             home()
-    
     elif opt == 'REFRESH 🌀':
         screen.refresh()
-    
     elif opt == 'POWER OFF 🛑':
         screen.clear()
         design.off()
@@ -108,6 +98,7 @@ def home():
 ##################################################################################
 ##################################################################################
 
-screen.clear()
-design.logo()
-home()
+if __name__ == '__main__':
+    screen.clear()
+    design.logo()
+    home()

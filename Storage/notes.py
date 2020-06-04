@@ -1,6 +1,6 @@
-import imp
-screen = imp.load_source('screen', './UI/screen_controller.py')
-menu = imp.load_source('menu', './UI/menu_controller.py')
+from UI import designs as design
+from UI import menu_controller as menu
+from UI import screen_controller as screen
 
 from pymongo import MongoClient
 route = MongoClient("mongodb://localhost:27017") # Client : route
@@ -38,3 +38,7 @@ def delete():
     a=input("\n\n\tTitle : ")
     notes.delete_one({'title' : a})
     return None
+
+
+if __name__ == '__main__':
+    pass

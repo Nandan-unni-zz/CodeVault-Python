@@ -1,4 +1,3 @@
-# key = imp.load_souce('default', './Settings/keys.py')
 index = {
     'time' : 0,
     'date' : 1,
@@ -24,3 +23,6 @@ def mod_def(prop, new_def):
     for pro in props:
         fw.write(pro)
     fw.close()
+
+if __name__ == '__main__':
+    pass

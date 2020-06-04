@@ -2,9 +2,8 @@ import datetime
 import time
 from colorama import Fore, Back, Style
 
-import imp
-screen = imp.load_source('screen', './UI/screen_controller.py')
-key = imp.load_source('key', './Settings/keys.py')
+from UI import menu_controller as menu
+from UI import screen_controller as screen
 
 def logo():
     print(Fore.RED + Style.BRIGHT, ''' 
@@ -89,11 +88,8 @@ def create_band(label):
     dsgn1 = '>>>>>  '
     dsgn2 = '  <<<<<'
     dsgn = dsgn1 + title + dsgn2
-    totlen = len(dsgn) + len(dsgn1) + len(dsgn2)
     print('\n')
-    for i in range(55 - totlen):
-        print(' ', end="")
-    print(Fore.MAGENTA, Style.BRIGHT, dsgn, Style.RESET_ALL, '\n')
+    print(Fore.MAGENTA, Style.BRIGHT, dsgn.center(50, ' '), Style.RESET_ALL, '\n')
 
 months = {
     1 : 'Jan',
@@ -109,3 +105,6 @@ months = {
     11 : 'Nov',
     12  : 'Dec'
 }
+
+if __name__ == '__main__':
+    pass

@@ -1,8 +1,7 @@
 import random
-import imp
-screen = imp.load_source('screen', './UI/screen_controller.py')
-menu = imp.load_source('menu', './UI/menu_controller.py')
-design = imp.load_source('design', './UI/designs.py')
+from UI import designs as design
+from UI import menu_controller as menu
+from UI import screen_controller as screen
 
 
 def twenty():
@@ -50,3 +49,6 @@ def main():
     else:
         exit()
 
+
+if __name__ == '__main__':
+    pass

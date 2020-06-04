@@ -143,3 +143,7 @@ def create_7(opt1, opt2, opt3, opt4, opt5, opt6, opt7):
         return menu_7[a7]
     else:
         return opt6
+
+
+if __name__ == '__main__':
+    pass

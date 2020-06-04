@@ -6,3 +6,7 @@ def clear():
 
 def refresh():
     os.system('python3 kernel.py')
+
+
+if __name__ == '__main__':
+    pass
