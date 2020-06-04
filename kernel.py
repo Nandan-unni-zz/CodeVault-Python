@@ -1,6 +1,11 @@
+'''
+DOCSTRING: A Sample OS of a feature phone made using Python just for learning purpose.
+'''
 ##### A S NANDANUNNI #####
 #### IG : u.n.n.i._ ######
 #### GH : nandan-unni ####
+
+import sys
 
 from Apps import calculator
 from Apps import hangman
@@ -17,7 +22,11 @@ from UI import designs as design
 from UI import menu_controller as menu
 from UI import screen_controller as screen
 
+
 def home():
+    '''
+    DOCSTRING: A function which controls the homescreen and connects to the inner elements.
+    '''
     screen.clear()
     date_time.timer()
     opt = menu.create_7('CONTACTS 👤', 'NOTES 📚',
@@ -74,7 +83,7 @@ def home():
         else:
             home()
     elif opt == 'GAMES ⚽️':
-        subopt = menu.create_4('Hangman', 'Tic Tac Toe', 'Hand Cricket (dev)', 'Back')
+        subopt = menu.create_4('Hangman', 'Tic Tac Toe', 'Hand Cricket', 'Back')
         if subopt == 'Hangman':
             hangman.main()
             home()
@@ -92,7 +101,7 @@ def home():
         screen.clear()
         design.off()
         screen.clear()
-        exit()
+        sys.exit()
 
 ##################################################################################
 ##################################################################################

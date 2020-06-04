@@ -8,32 +8,36 @@ from colorama import Fore, Back, Style
 
 def timer():
     screen.clear()
-    print("\n\n")
-    clock=datetime.datetime.now()
+    clock = datetime.datetime.now()
+
+    def disp(dd, mm, yy, day, hr, mn, zn):
+        date = dd + ' ' + mm + ' ' + yy + ', ' + day
+        time = hr + ' : ' + mn + ' ' + zn
+        print('\n', Fore.RED + Style.BRIGHT)
+        for x in range(51): print('_', end='')
+        print('\n', Style.RESET_ALL)
+        print(Fore.MAGENTA, date.center(50, ' '), "\n", Style.RESET_ALL)
+        print(Fore.MAGENTA + Style.BRIGHT, time.center(50, ' '), Fore.RED)
+        for x in range(51): print('_', end='')
+        print('', Style.RESET_ALL)
+        del x, date, time
 
     if key.get_def('time') == '24':
         if key.get_def('date') == 'number':
-            print(Fore.MAGENTA, "\t\t",clock.day,"/",clock.month,"/",clock.year, "\n", Style.RESET_ALL)
-            print(Fore.MAGENTA + Style.BRIGHT, "\t\t   ", clock.hour, ":", clock.minute, Style.RESET_ALL)
+            disp(clock.strftime('%d'), clock.strftime('%m'), clock.strftime('%Y'), clock.strftime('%A'), 
+                 clock.strftime('%H'), clock.strftime('%M'), clock.strftime('%p'))
         else:
-            month = design.months[clock.month]
-            print(Fore.MAGENTA, "\t\t",clock.day," ",month," ",clock.year, "\n", Style.RESET_ALL)
-            print(Fore.MAGENTA + Style.BRIGHT, "\t\t   ", clock.hour, ":", clock.minute, Style.RESET_ALL)
+            disp(clock.strftime('%d'), clock.strftime('%b'), clock.strftime('%Y'), clock.strftime('%A'), 
+                 clock.strftime('%H'), clock.strftime('%M'), clock.strftime('%p'))
     else:
-        if clock.hour > 12:
-            hour = clock.hour - 12
-            zone = 'pm'
-        else:
-            hour = clock.hour
-            zone = 'am'
         if key.get_def('date') == 'number':
-            print(Fore.MAGENTA, "\t\t",clock.day,"/",clock.month,"/",clock.year, "\n", Style.RESET_ALL)
-            print(Fore.MAGENTA + Style.BRIGHT, "\t\t  ", hour, ":", clock.minute, zone, Style.RESET_ALL)
+            disp(clock.strftime('%d'), clock.strftime('%b'), clock.strftime('%Y'), clock.strftime('%A'), 
+                 clock.strftime('%l'), clock.strftime('%M'), clock.strftime('%p'))
         else:
-            month = design.months[clock.month]
-            print(Fore.MAGENTA, "\t\t",clock.day," ",month," ",clock.year,"\n", Style.RESET_ALL)
-            print(Fore.MAGENTA + Style.BRIGHT, "\t\t  ", hour, ":", clock.minute, zone, Style.RESET_ALL)
+            disp(clock.strftime('%d'), clock.strftime('%m'), clock.strftime('%Y'), clock.strftime('%A'), 
+                 clock.strftime('%l'), clock.strftime('%M'), clock.strftime('%p'))
 
+    del clock
     print('\n\n')
 
 def time_format():

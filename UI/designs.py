@@ -56,12 +56,12 @@ def create_logo(label):
 
 def create_banner(label):
     screen.clear()
-    if len(label) <= 16:
+    if len(label) <= 15:
         title = ' '.join(label)
     else:
         title = label
-    dsgn1 = '*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*'
-    dsgn2 = '.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.'
+    dsgn1 = '*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*. '
+    dsgn2 = '.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*'
     dslen = len(dsgn2)
     ttlen = len(title)
     rem = int((dslen - ttlen)/2)
@@ -81,30 +81,17 @@ def create_banner(label):
 def create_band(label):
     screen.clear()
     if len(label) <= 16:
-        title = ' '.join(label)
+        dsgn = ' '.join(label)
     else:
-        title = label
+        dsgn = label
     
-    dsgn1 = '>>>>>  '
-    dsgn2 = '  <<<<<'
-    dsgn = dsgn1 + title + dsgn2
-    print('\n')
-    print(Fore.MAGENTA, Style.BRIGHT, dsgn.center(50, ' '), Style.RESET_ALL, '\n')
-
-months = {
-    1 : 'Jan',
-    2 : 'Feb',
-    3 : 'March',
-    4 : 'April',
-    5 : 'May',
-    6 : 'June',
-    7 : 'July',
-    8 : 'Aug',
-    9 : 'Sept',
-    10 : 'Oct',
-    11 : 'Nov',
-    12  : 'Dec'
-}
+    print('\n', Fore.RED, Style.BRIGHT)
+    for x in range(51): print('_', end='')
+    print('\n', Style.RESET_ALL)
+    print(Fore.MAGENTA, Style.BRIGHT, dsgn.center(50, ' '), Fore.RED)
+    for x in range(51): print('_', end='')
+    print('\n\n', Style.RESET_ALL)
+    del x
 
 if __name__ == '__main__':
     pass
