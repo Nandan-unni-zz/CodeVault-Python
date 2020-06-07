@@ -56,7 +56,7 @@ def create_logo(label):
 
 def create_banner(label):
     screen.clear()
-    if len(label) <= 15:
+    if len(label) <= 16:
         title = ' '.join(label)
     else:
         title = label
@@ -92,6 +92,18 @@ def create_band(label):
     for x in range(51): print('_', end='')
     print('\n\n', Style.RESET_ALL)
     del x
+
+def create_head(label):
+    if len(label) <= 16:
+        dsgn = ' '.join(label)
+    else:
+        dsgn = label
+
+    print('\n\n\n', Fore.MAGENTA, Style.BRIGHT, dsgn.center(50, ' '), Fore.RED)
+    for x in range(51): print('_', end='')
+    print('\n', Style.RESET_ALL)
+    del x
+    return None
 
 if __name__ == '__main__':
     pass
