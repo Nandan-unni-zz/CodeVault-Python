@@ -108,6 +108,11 @@ def home():
 ##################################################################################
 
 if __name__ == '__main__':
-    screen.clear()
-    design.logo()
-    home()
+    try:
+        screen.clear()
+        design.logo()
+        home()
+    except ModuleNotFoundError:
+        print('Make sure that you\'re running the script from the correct location.')
+        print('Run the req_installer.py to install the requirements')
+        sys.exit()
