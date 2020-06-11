@@ -10,7 +10,7 @@ proton = route.proton # Database : proton
 contacts = proton.contacts # Collection : contacts
 
 def add():
-    design.create_band('ADD CONTACTS')
+    design.create_band('ADD CONTACTS ➕')
     cname=input("\n\tName : ")
     cphno=input("\tPhone Number : ")
     screen.clear()
@@ -34,7 +34,7 @@ def view():
 
 def edit():
     view()
-    design.create_head('EDIT CONTACT')
+    design.create_head('EDIT CONTACT 🔧')
     old = input("\n\n\tSearch by Name : ")
     opt = menu.create_2('Edit Name', 'Edit Phone Number')
     if opt == 'Edit Name':
@@ -48,7 +48,7 @@ def edit():
 
 def delete():
     view()
-    design.create_head('DELETE CONTACT')
+    design.create_head('DELETE CONTACT ⛔️')
     remove = input("\n\n\tName : ")
     contacts.delete_one({'name' : remove})
     screen.clear()

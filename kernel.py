@@ -113,6 +113,8 @@ if __name__ == '__main__':
         design.logo()
         home()
     except ModuleNotFoundError:
-        print('Make sure that you\'re running the script from the correct location.')
-        print('Run the req_installer.py to install the requirements')
+        print('\nSome required modules are not installed in your device.\nRun the req_installer.py to install the requirements.\n')
+        sys.exit()
+    except FileNotFoundError:
+        print('\nSome files are missing.\nMake sure that you\'re running the script from the correct location.\n')
         sys.exit()

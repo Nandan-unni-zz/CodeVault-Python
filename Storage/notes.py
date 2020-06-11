@@ -2,14 +2,15 @@ from UI import designs as design
 from UI import menu_controller as menu
 from UI import screen_controller as screen
 
+from colorama import Fore, Back, Style
+
 from pymongo import MongoClient
 route = MongoClient("mongodb://localhost:27017") # Client : route
 proton = route.proton # Database : proton
 notes = proton.notes # Collection : notes
 
 def add():
-    screen.clear()
-    print("\n\n\tA D D   N O T E S")
+    design.create_band('ADD NOTES ➕')
     ntitle=input("\n\tTitle : ")
     ntext=input("\n Type notes and press enter to save : \n\n    ")
     screen.clear()
@@ -25,18 +26,18 @@ def add():
         return None
 
 def view():
-    screen.clear()
-    print("\n\n\t\tC O N T A C T S\n")
+    design.create_band('NOTES')
     for note in notes.find().sort('title', 1):
-        print(note['title'])
+        print(Fore.BLUE, Style.BRIGHT, note['title'], Style.RESET_ALL)
         print("\n", note['text'], "\n\n")
-    return None
+    print(Fore.MAGENTA)
+    input("\n\t    Continue >> ")
 
 def delete():
+    design.create_band('DELETE NOTE ⛔️')
+    remove  = input("\n\n\tTitle : ")
+    notes.delete_one({'title' : remove})
     screen.clear()
-    print("\n\n\tD E L E T E   N O T E S")
-    a=input("\n\n\tTitle : ")
-    notes.delete_one({'title' : a})
     return None
 
 
