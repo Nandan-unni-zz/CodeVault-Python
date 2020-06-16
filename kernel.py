@@ -1,6 +1,4 @@
-'''
-DOCSTRING: A Sample OS of a feature phone made using Python just for learning purpose.
-'''
+''' A Sample OS of a feature phone made using Python just for learning purpose.'''
 ##### A S NANDANUNNI #####
 #### IG : u.n.n.i._ ######
 #### GH : nandan-unni ####
@@ -24,9 +22,7 @@ from UI import screen_controller as screen
 
 
 def home():
-    '''
-    DOCSTRING: A function which controls the homescreen and connects to the inner elements.
-    '''
+    ''' A function which controls the homescreen and connects to the inner elements.'''
     screen.clear()
     date_time.timer()
     opt = menu.create_7('CONTACTS 👤', 'NOTES 📚',
@@ -49,8 +45,7 @@ def home():
         elif subopt == 'Delete Contacts':
             contacts.delete()
             home()
-        else:
-            home()
+        else: home()
     elif opt == 'NOTES 📚':
         subopt = menu.create_4('New Note', 'View Notes', 'Delete Notes', 'Back')
         if subopt == 'New Note':
@@ -62,8 +57,7 @@ def home():
         elif subopt == 'Delete Notes':
             notes.delete()
             home()
-        else:
-            home()
+        else: home()
 
     elif opt == 'CALCULATOR 📟':
         calculator.main()
@@ -80,8 +74,7 @@ def home():
         elif subopt == 'Factory Reset':
             settings.factory_reset()
             home()
-        else:
-            home()
+        else: home()
     elif opt == 'GAMES ⚽️':
         subopt = menu.create_4('Hangman', 'Tic Tac Toe', 'Hand Cricket', 'Back')
         if subopt == 'Hangman':
@@ -93,9 +86,8 @@ def home():
         elif subopt == 'Hand Cricket (dev)':
             hand_cricket.main()
             home()
-        else:
-            home()
-    elif opt == 'REFRESH 🌀':
+        else: home()
+    elif opt == 'REFRESH 🌀': 
         screen.refresh()
     elif opt == 'POWER OFF 🛑':
         screen.clear()
@@ -113,8 +105,10 @@ if __name__ == '__main__':
         design.logo()
         home()
     except ModuleNotFoundError:
-        print('\nSome required modules are not installed in your device.\nRun the req_installer.py to install the requirements.\n')
+        print('\nSome required modules are not installed in your device.')
+        print('Run the req_installer.py to install the requirements.\n')
         sys.exit()
     except FileNotFoundError:
-        print('\nSome files are missing.\nMake sure that you\'re running the script from the correct location.\n')
+        print('\nSome files are missing.')
+        print('Make sure that you\'re running the script from the correct location.\n')
         sys.exit()
