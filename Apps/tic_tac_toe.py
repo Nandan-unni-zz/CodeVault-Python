@@ -21,7 +21,7 @@ def logo(*args):
 '''.format(*args))
 
 def main():
-    remote = [1,2,3,4,5,6,7,8,9]
+    remote = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     logo(*remote)
     plr1 = input(('  Player 1, Do you want to be X or O ? '))
     if plr1 == 'X' or plr1 == 'x':
@@ -30,7 +30,7 @@ def main():
     else:
         plr1 = 'O'
         plr2 = 'X'
-    
+
     logo(*remote)
 
     def processor(plr, plno=''):
@@ -45,10 +45,10 @@ def main():
                 logo(*remote)
             else:
                 print('  Invalid Entry . ! You lost your chance.\n')
-        
+
         else:
             print('  Invalid Entry . ! You lost your chance.\n')
-        
+
         for i in range(len(remote)):
             if remote[i] == plr:
                 final = final + str(i)
@@ -59,19 +59,19 @@ def main():
                 print('  Congrats ! Player {} have won the match.\n'.format(plno))
                 input('\t  Home >> ')
                 return True
-            
+
 
     for control in range(1,10):
         if control%2 == 0:
             win = processor(plr1, 1)
             if win:
                 return None
-        
+
         else:
             win = processor(plr2, 2)
             if win:
                 return None
-    
+
     logo(*remote)
     print('  Draw Match !\n')
     input('\t  Home >> ')

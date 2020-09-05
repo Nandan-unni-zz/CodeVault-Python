@@ -4,7 +4,7 @@ from UI import menu_controller as menu
 from UI import screen_controller as screen
 
 import datetime
-from colorama import Fore, Back, Style
+from colorama import Fore, Style
 
 def timer():
     screen.clear()
@@ -24,17 +24,17 @@ def timer():
 
     if key.get_def('time') == '24':
         if key.get_def('date') == 'number':
-            disp(clock.strftime('%d'), clock.strftime('%m'), clock.strftime('%Y'), clock.strftime('%A'), 
+            disp(clock.strftime('%d'), clock.strftime('%m'), clock.strftime('%Y'), clock.strftime('%A'),
                  clock.strftime('%H'), clock.strftime('%M'), clock.strftime('%p'))
         else:
-            disp(clock.strftime('%d'), clock.strftime('%b'), clock.strftime('%Y'), clock.strftime('%A'), 
+            disp(clock.strftime('%d'), clock.strftime('%b'), clock.strftime('%Y'), clock.strftime('%A'),
                  clock.strftime('%H'), clock.strftime('%M'), clock.strftime('%p'))
     else:
         if key.get_def('date') == 'number':
-            disp(clock.strftime('%d'), clock.strftime('%b'), clock.strftime('%Y'), clock.strftime('%A'), 
+            disp(clock.strftime('%d'), clock.strftime('%b'), clock.strftime('%Y'), clock.strftime('%A'),
                  clock.strftime('%l'), clock.strftime('%M'), clock.strftime('%p'))
         else:
-            disp(clock.strftime('%d'), clock.strftime('%m'), clock.strftime('%Y'), clock.strftime('%A'), 
+            disp(clock.strftime('%d'), clock.strftime('%m'), clock.strftime('%Y'), clock.strftime('%A'),
                  clock.strftime('%l'), clock.strftime('%M'), clock.strftime('%p'))
 
     del clock
