@@ -20,33 +20,32 @@ def main():
 
     words = ["apple", "orange", "grapes", "banana", "pineapple", "jackfruit"]
     #     ["__p__","__a__e","__a__s","__n__a","__n__p__e","__c__r__t"]
-    a = random.randint(0,5)
-    ans = words[a]
-    guess = words[a]
-    del a
-    l = len(ans)
-    for i in range(1, l+1):
+    random_pos = random.randint(0,5)
+    ans = words[random_pos]
+    qn = words[random_pos]
+    word_len = len(ans)
+    for i in range(1, word_len + 1):
         if i % 3 != 0:
-            guess = guess.replace(guess[i-1], str(i), 1)
-    h = 5
-    f = 0
-    while h > 0:
+            qn = qn.replace(qn[i-1], str(i), 1)
+    health = 5
+    found = False
+    while health > 0:
         title()
         print("\n\n\t", end="")
-        for i in range(l):
-            if guess[i].isdigit() == True:
+        for i in range(word_len):
+            if qn[i].isdigit() == True:
                 print("__", end=" ")
             else:
-                print(guess[i], end=" ")
-        print("\n\n\tLife : ", h)
-        z = input("\n\n\tGuess a letter : ")
-        f = 0
-        for i in range(l):
-            if z == ans[i]:
-                f = f+1
-                guess = guess.replace(guess[i], ans[i], 1)
-        if f > 0:
-            if guess == ans:
+                print(qn[i], end=" ")
+        print("\n\n\tLife : ", health)
+        guess_letter = input("\n\n\tGuess a letter : ")
+        found = False
+        for i in range(word_len):
+            if guess_letter == ans[i]:
+                found = True
+                qn = qn.replace(qn[i], ans[i], 1)
+        if found:
+            if qn == ans:
                 victory()
                 opt = int(input('1. Play Again \t 2. Quit \n\t : '))
                 if opt == 1:
@@ -54,17 +53,17 @@ def main():
                 else:
                     return None
         else:
-            h = h-1
-            print("\n\n\tThe word doesn't contain", z)
+            health = health - 1
+            print("\n\n\tThe word doesn't contain", guess_letter)
             pause()
         title()
         print("\n\n\t",end="")
-        for i in range(l):
-            if guess[i].isdigit() == True:
+        for i in range(word_len):
+            if qn[i].isdigit():
                 print("__", end=" ")
             else:
-                print(guess[i], end=" ")
-        print("\n\n\tLife : ", h)
+                print(qn[i], end=" ")
+        print("\n\n\tLife : ", health)
         y = input("\n\n\tDid you get the word ? (y/n) : ")
         if y == 'y':
             temp = str(input("\n\t    Your Answer : "))
@@ -76,10 +75,10 @@ def main():
                 else:
                     return None
             else:
-                h = h-1
-                print("\n\n\tWrong..!\n\n\t  ", h, " life remaining.")
+                health = health - 1
+                print("\n\n\tWrong..!\n\n\t  ", health, " life remaining.")
                 pause()
-    if h == 0:
+    if health == 0:
         print(' BETTER LUCK NEXT TIME ')
         opt = int(input('1. Play Again \t 2. Back \n\t : '))
         if opt == 1:
