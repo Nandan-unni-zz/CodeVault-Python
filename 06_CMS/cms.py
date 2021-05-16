@@ -3,6 +3,8 @@ import os
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+# changes varuthiii
+
 def createContact():
     print("\n\n\t\t CREATE CONTACT")
     file = open("contacts.txt", "at")
